@@ -1,8 +1,6 @@
 pipeline {
 
- //  agent {
-   //   label "default"
-  // }
+ agent any
 
     environment {
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
