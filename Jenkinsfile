@@ -18,7 +18,7 @@ pipeline {
                 step([$class: 'KubernetesEngineBuilder', 
                         projectId: "s-epo-itcoopk8spoc-prj",
                         clusterName: "epo-dev",
-                        zone: "europe-west3",
+                        zone: "europe-west3-a",
                         manifestPattern: 'hem/address-book/',
                         credentialsId: "s-epo-itcoopk8spoc-prj",
                         verifyDeployments: true])
