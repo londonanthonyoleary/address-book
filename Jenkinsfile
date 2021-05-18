@@ -36,9 +36,9 @@ pipeline {
 	stages {
 
 	  stage("Deploy to staging") {
-
+steps {
        // namespace = 'default'
-        echo "Deploying"
+       // echo "Deploying"
         helmInstall('default', "123")
         /*
 	    steps{
@@ -54,6 +54,7 @@ pipeline {
             }
             */
 	}
+      }
     }
         
 }
