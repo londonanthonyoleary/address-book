@@ -1,5 +1,4 @@
 pipeline {
-    agent none
 
    agent {
       label "default"
