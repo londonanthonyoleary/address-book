@@ -20,7 +20,7 @@ pipeline {
                         clusterName: "epo-dev",
                         zone: "europe-west3",
                         manifestPattern: 'hem/address-book/',
-                        credentialsId: "epo-dev-terraform-anthonyoleary",
+                        credentialsId: "s-epo-itcoopk8spoc-prj",
                         verifyDeployments: true])
 
             }
