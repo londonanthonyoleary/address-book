@@ -34,11 +34,12 @@ pipeline {
 
 
 	stages {
-	stage("Deploy to staging") {
 
-namespace = 'default'
-echo "Deploying"
-                    helmInstall(namespace, "123")
+	  stage("Deploy to staging") {
+
+        namespace = 'default'
+        echo "Deploying"
+        helmInstall(namespace, "123")
         /*
 	    steps{
                git url: 'https://github.com/londonanthonyoleary/address-book'
