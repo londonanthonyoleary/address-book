@@ -1,3 +1,26 @@
+/*
+    Helm install
+ */
+def helmInstall (namespace, release) {
+    echo "Installing ${release} in ${namespace}"
+
+    script {
+        /*
+        release = "${release}-${namespace}"
+        sh "helm repo add helm ${HELM_REPO}; helm repo update"
+        sh """
+            helm upgrade --install --namespace ${namespace} ${release} \
+                --set imagePullSecrets=${IMG_PULL_SECRET} \
+                --set image.repository=${DOCKER_REG}/${IMAGE_NAME},image.tag=${DOCKER_TAG} helm/acme
+        """
+        */
+        sh "helm upgrade address-book-develop-preemptible-JENKINS helm/address-book --install --wait --namespace=default --set instance=develop --set k8s.clusterName=epo-dev --set lifecycle=preemptible --set featureBranch=default --set jenkinsBranch=develop --timeout 10m"
+
+        sh "sleep 5"
+    }
+}
+
+
 pipeline {
 
  agent any
@@ -12,7 +35,11 @@ pipeline {
 
 	stages {
 	stage("Deploy to staging") {
-        
+
+namespace = 'default'
+echo "Deploying"
+                    helmInstall(namespace, "123")
+        /*
 	    steps{
                git url: 'https://github.com/londonanthonyoleary/address-book'
                 step([$class: 'KubernetesEngineBuilder', 
@@ -24,6 +51,7 @@ pipeline {
                         verifyDeployments: true])
 
             }
+            */
 	}
     }
         
