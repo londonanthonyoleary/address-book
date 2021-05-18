@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: address-book-configmap-{{ .Values.instance }}
+data:
+  PORT: "8080"
+  {{- if .Values.jenkinsBranch }}
+  ENVIRONMENT: {{ .Values.jenkinsBranch }}
+  {{- if eq .Values.jenkinsBranch "master" }}
+  DB_URL: "mongodb://addressbook:addressbook123@luu2235d.internal.epo.org:27017/address_book_master"
+  IAM_OIDC_JWK_ENDPOINT: "https://front-office-nonprod.internal.epo.org/iam-service-master/realms/front-office-public/protocol/openid-connect/certs"
+  CONFIGURATION_ENDPOINT: "http://fo-configuration-service-master:8080/fo-configuration-service-master"
+  {{- else }}
+ # DB_URL: "mongodb://addressbook:addressbook123@luu2235d.internal.epo.org:27017/address_book_dev"
+  DB_URL: "mongodb+srv://addressbook:addressbook123@cluster0.ggx1s.mongodb.net/address_book_dev?retryWrites=true&w=majority"
+#  IAM_OIDC_JWK_ENDPOINT: "https://front-office-nonprod.internal.epo.org/iam-service-develop/realms/front-office-public/protocol/openid-connect/certs"
+  IAM_OIDC_JWK_ENDPOINT: "https://35.244.252.48/iam-service-develop/realms/front-office-public/protocol/openid-connect/certs"
+  CONFIGURATION_ENDPOINT: "http://fo-configuration-service-develop:8080/fo-configuration-service-develop"
+  {{- end }}
+  {{- end }}

@@ -1,0 +1,16 @@
+name: "address-book"
+apiVersion: v1
+appVersion: "1.0.0"
+description: "SPFO Helm Chart"
+icon: https://www.epo.org/favicon.ico
+version: "2"
+keywords:
+- "sample"
+- "docker"
+- "kubernetes"
+- "helm"
+maintainers:
+- name: "Common Build Support"
+  email: "commonbuildsupport@epo.org"
+- name: "UNIX APP"
+  email: "unix_app@epo.org"

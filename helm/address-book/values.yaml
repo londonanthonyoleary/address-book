@@ -1,0 +1,29 @@
+k8s:
+  timeout_ms: 10000
+
+imageRegistry: "${docker.image.registry.releases}"
+
+application:
+  debug: true
+  name: "address-book"
+  version: ${project.version}
+
+component:
+  addressBookService:
+    name: "address-book"
+    image: address-book
+    version: ${docker.web.image.version}
+
+replicas:
+  min: 1
+  max: 1
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+configuration: |
+  management.endpoints.web.exposure.include=prometheus, info, health

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    address-book.service: address-book-{{ .Values.instance }}
+  name: address-book-{{ .Values.instance }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      address-book.service: address-book-{{ .Values.instance }}
+  template:
+    metadata:
+      labels:
+        address-book.service: address-book-{{ .Values.instance }}
+      annotations:
+        rolloutVersion: {{ randAlphaNum 8 | quote }}
+    spec:
+      containers:
+        - image: eu.gcr.io/s-epo-itcoopk8spoc-prj/address-book:latest
+  #      - image: {{ .Values.imageRegistry }}/{{ .Values.component.addressBookService.name }}:{{ .Values.application.version }}
+          name: address-book-service-{{ .Values.instance }}
+          envFrom:
+            - configMapRef:
+                name: address-book-configmap-{{ .Values.instance }}
+          ports:
+            - containerPort: 8080
+              name: "address-book"
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /sp-ui-npefiling/addressbook-api/actuator/health
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            failureThreshold: 10
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /sp-ui-npefiling/addressbook-api/actuator/health
+            initialDelaySeconds: 20
+            timeoutSeconds: 10         
+          resources:
+            requests:
+              cpu: "{{ .Values.resources.requests.cpu }}"
+              memory: "{{ .Values.resources.requests.memory }}"
+            limits:
+              cpu: "{{ .Values.resources.limits.cpu }}"
+              memory: "{{ .Values.resources.limits.memory }}"
+          imagePullPolicy: Always
+      restartPolicy: Always
+      securityContext:
+        fsGroup: 999
+        runAsUser: 999
+      serviceAccountName: ""
