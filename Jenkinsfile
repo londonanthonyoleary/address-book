@@ -17,7 +17,16 @@ pipeline {
 	stage("Deploy to staging") {
         
 	    steps{
-		 helm upgrade DEMO-address-book-develop-preemptible helm/address-book --install --wait --namespace=default --set instance=develop --set k8s.clusterName=epo-dev --set lifecycle=preemptible --set featureBranch=default --set jenkinsBranch=develop --timeout 10m
+//		 helm upgrade DEMO-address-book-develop-preemptible helm/address-book --install --wait --namespace=default --set instance=develop --set k8s.clusterName=epo-dev --set lifecycle=preemptible --set featureBranch=default --set jenkinsBranch=develop --timeout 10m
+
+git url: 'https://github.com/londonanthonyoleary/address-book'
+                step([$class: 'KubernetesEngineBuilder', 
+                        projectId: "s-epo-itcoopk8spoc-prj",
+                        clusterName: "epo-dev",
+                        zone: "europe-west3",
+                        manifestPattern: 'hem/address-book/',
+                        credentialsId: "epo-dev-terraform-anthonyoleary",
+                        verifyDeployments: true])
 
             }
 	}
