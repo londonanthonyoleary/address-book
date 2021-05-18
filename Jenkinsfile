@@ -31,6 +31,4 @@ git url: 'https://github.com/londonanthonyoleary/address-book'
             }
 	}
         
-
-    }
 }
