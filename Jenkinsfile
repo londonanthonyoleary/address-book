@@ -23,13 +23,13 @@ def helmInstall (namespace, release) {
 
 pipeline {
 
- agent any
+ //agent any
 
 //agent {
  //       docker { image 'bitnami/kubectl' }
   //  }
 
-/*
+
  agent {
     kubernetes {
       label 'sample-app'
@@ -57,7 +57,7 @@ spec:
 """
 }
   }
-|*/
+|
 
     environment {
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
@@ -81,6 +81,7 @@ spec:
       }
   }
   */
+
 /*
   stage('Run Helm') {
       steps {
@@ -97,8 +98,20 @@ spec:
       }
   }
   */
+      stage('Deploy Production') {
+      // Production branch
+    
+      steps{
+        container('kubectl') {
+        // Change deployed image in canary to the one we just built
+          step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: env.PROJECT, clusterName: "epo-dev", zone: "europe-west3-a", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
+         // sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}")
+         sh("echo gggg")
+        }
+      
+    }
 
-
+/*
 	  stage("Deploy to staging") {
 steps {
        // namespace = 'default'
@@ -116,6 +129,7 @@ steps {
                         verifyDeployments: true])
 	}
       }
+      */
 
 
     }
