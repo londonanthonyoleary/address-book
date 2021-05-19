@@ -29,7 +29,9 @@ pipeline {
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
         CLUSTER_NAME = 'epo-dev'
         LOCATION = 'europe-west3'
-        CREDENTIALS_ID = 'epo-dev-terraform-anthonyoleary'
+    //    CREDENTIALS_ID = 'epo-dev-terraform-anthonyoleary'
+                CREDENTIALS_ID = 's-epo-itcoopk8spoc-prj'
+
     }
 
 
@@ -48,9 +50,9 @@ pipeline {
 
   stage('Run Helm') {
       steps {
-     //     withCredentials([file(credentialsId: 's-epo-itcoopk8spoc-prj', variable: 'KUBECONFIG')]) {
+          withCredentials([file(credentialsId: 's-epo-itcoopk8spoc-prj', variable: 'KUBECONFIG')]) {
       //     CredentialsUtil.getGoogleCredential(credentialsId: 's-epo-itcoopk8spoc-prj') {
-       withCredentials(credentialsId: 's-epo-itcoopk8spoc-prj') {
+      // withCredentials(credentialsId: 's-epo-itcoopk8spoc-prj') {
 
       script {      
       container('helm') {
