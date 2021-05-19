@@ -29,8 +29,8 @@ pipeline {
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
         CLUSTER_NAME = 'epo-dev'
         LOCATION = 'europe-west3'
-    //    CREDENTIALS_ID = 'epo-dev-terraform-anthonyoleary'
-                CREDENTIALS_ID = 's-epo-itcoopk8spoc-prj'
+        CREDENTIALS_ID = 'epo-dev-terraform-anthonyoleary'
+      //          CREDENTIALS_ID = 's-epo-itcoopk8spoc-prj'
 
     }
 
@@ -78,7 +78,7 @@ steps {
                         clusterName: "epo-dev",
                         zone: "europe-west3",
                         manifestPattern: 'simple-deploy.yaml',
-                        credentialsId: "s-epo-itcoopk8spoc-prj",
+                        credentialsId: "epo-dev-terraform-anthonyoleary",
                         verifyDeployments: true])
 
             }
