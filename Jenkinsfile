@@ -29,12 +29,12 @@ pipeline {
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
         CLUSTER_NAME = 'epo-dev'
         LOCATION = 'europe-west3'
-        CREDENTIALS_ID = 's-epo-itcoopk8spoc-prj'
+        CREDENTIALS_ID = 'epo-dev-terraform-anthonyoleary'
     }
 
 
 	stages {
-
+/*
   stage('Run Helm') {
       steps {
       script {      
@@ -44,8 +44,8 @@ pipeline {
       } 
       }
   }
-  
-/*
+  */
+
   stage('Run Helm') {
       steps {
           withCredentials([file(credentialsId: 'epo-dev-terraform-anthonyoleary', variable: 'KUBECONFIG')]) {
@@ -57,7 +57,7 @@ pipeline {
       }
       }
   }
-*/
+
 
 	  stage("Deploy to staging") {
 steps {
