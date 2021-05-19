@@ -49,7 +49,7 @@ pipeline {
   stage('Run Helm') {
       steps {
      //     withCredentials([file(credentialsId: 's-epo-itcoopk8spoc-prj', variable: 'KUBECONFIG')]) {
-           CredentialsUtil.getGoogleCredential([file(credentialsId: 's-epo-itcoopk8spoc-prj', variable: 'KUBECONFIG')]) {
+           CredentialsUtil.getGoogleCredential([file(credentialsId: 'epo-dev-terraform-anthonyoleary', variable: 'KUBECONFIG')]) {
       script {      
       container('helm') {
         sh "helm ls"
