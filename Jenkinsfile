@@ -48,7 +48,7 @@ pipeline {
 
   stage('Run Helm') {
       steps {
-          withCredentials([file(credentialsId: 'epo-dev-terraform-anthonyoleary', variable: 'KUBECONFIG')]) {
+          withCredentials([file(credentialsId: 's-epo-itcoopk8spoc-prj', variable: 'KUBECONFIG')]) {
       script {      
       container('helm') {
         sh "helm ls"
