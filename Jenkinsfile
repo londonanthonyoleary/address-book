@@ -71,7 +71,7 @@ steps {
         echo "Deploying"
        // helmInstall('default', "123")
         
-	    steps{
+	    
                git url: 'https://github.com/londonanthonyoleary/address-book'
                 step([$class: 'KubernetesEngineBuilder', 
                         projectId: "s-epo-itcoopk8spoc-prj",
@@ -80,9 +80,6 @@ steps {
                         manifestPattern: 'simple-deploy.yaml',
                         credentialsId: "epo-dev-terraform-anthonyoleary",
                         verifyDeployments: true])
-
-            }
-            
 	}
       }
 
