@@ -30,7 +30,7 @@ pipeline {
     kubernetes {
       label 'sample-app'
       defaultContainer 'jnlp'
-      yaml "''"
+      yaml """
 apiVersion: v1
 kind: Pod
 metadata:
