@@ -47,7 +47,7 @@ pipeline {
       }
   }
   */
-
+/*
   stage('Run Helm') {
       steps {
           withCredentials([file(credentialsId: 's-epo-itcoopk8spoc-prj', variable: 'KUBECONFIG')]) {
@@ -62,6 +62,7 @@ pipeline {
       }
       }
   }
+  */
 
 
 	  stage("Deploy to staging") {
@@ -69,19 +70,19 @@ steps {
        // namespace = 'default'
         echo "Deploying"
        // helmInstall('default', "123")
-        /*
+        
 	    steps{
                git url: 'https://github.com/londonanthonyoleary/address-book'
                 step([$class: 'KubernetesEngineBuilder', 
                         projectId: "s-epo-itcoopk8spoc-prj",
                         clusterName: "epo-dev",
                         zone: "europe-west3",
-                        manifestPattern: 'helm/address-book/',
+                        manifestPattern: 'simple-deploy.yaml',
                         credentialsId: "s-epo-itcoopk8spoc-prj",
                         verifyDeployments: true])
 
             }
-            */
+            
 	}
       }
 
