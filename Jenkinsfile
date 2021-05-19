@@ -25,9 +25,9 @@ pipeline {
 
  agent any
 
-/agent {
+//agent {
  //       docker { image 'bitnami/kubectl' }
-  /  }
+  //  }
 
 /*
  agent {
