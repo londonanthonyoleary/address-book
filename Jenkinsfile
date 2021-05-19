@@ -23,11 +23,11 @@ def helmInstall (namespace, release) {
 
 pipeline {
 
- //agent any
+ agent any
 
-agent {
-        docker { image 'bitnami/kubectl' }
-    }
+/agent {
+ //       docker { image 'bitnami/kubectl' }
+  /  }
 
 /*
  agent {
