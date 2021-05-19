@@ -35,11 +35,22 @@ pipeline {
 
 	stages {
 
+  stage('Run Helm') {
+      steps {
+      script {      
+      container('helm') {
+        sh "helm ls"
+       }
+      } 
+      }
+  }
+
+
 	  stage("Deploy to staging") {
 steps {
        // namespace = 'default'
        // echo "Deploying"
-        helmInstall('default', "123")
+      //  helmInstall('default', "123")
         /*
 	    steps{
                git url: 'https://github.com/londonanthonyoleary/address-book'
