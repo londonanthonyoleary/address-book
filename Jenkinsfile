@@ -57,7 +57,7 @@ spec:
 """
 }
   }
-|
+
 
     environment {
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
