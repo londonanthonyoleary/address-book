@@ -24,12 +24,12 @@ def helmInstall (namespace, release) {
 pipeline {
 
  //agent any
-
+/*
 agent {
         docker { image 'bitnami/kubectl' }
     }
+*/
 
-/*
  agent {
     kubernetes {
       label 'sample-app'
@@ -57,7 +57,7 @@ spec:
 """
 }
   }
-*/
+
 
     environment {
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
