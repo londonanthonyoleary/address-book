@@ -49,8 +49,8 @@ pipeline {
 	  stage("Deploy to staging") {
 steps {
        // namespace = 'default'
-       // echo "Deploying"
-      //  helmInstall('default', "123")
+        echo "Deploying"
+       // helmInstall('default', "123")
         /*
 	    steps{
                git url: 'https://github.com/londonanthonyoleary/address-book'
@@ -66,6 +66,8 @@ steps {
             */
 	}
       }
+
+
     }
         
 }
