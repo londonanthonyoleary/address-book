@@ -23,14 +23,14 @@ def helmInstall (namespace, release) {
 
 pipeline {
 
- agent any
+ //agent any
 
-/*
+
  agent {
     kubernetes {
       label 'sample-app'
       defaultContainer 'jnlp'
-      yaml """
+      yaml "''"
 apiVersion: v1
 kind: Pod
 metadata:
@@ -53,7 +53,7 @@ spec:
 """
 }
   }
-*/
+
 
     environment {
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
