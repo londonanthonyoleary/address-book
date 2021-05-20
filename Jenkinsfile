@@ -107,7 +107,9 @@ spec:
       steps{
         container('kubectl') {
         // Change deployed image in canary to the one we just built
-          step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-dev", zone: "europe-west3-a", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
+        //  step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-dev", zone: "europe-west3-a", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
+          step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-dev", zone: "europe-west3", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
+
          // sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}")
          sh("echo gggg")
         }
