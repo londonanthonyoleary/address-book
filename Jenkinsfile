@@ -42,7 +42,7 @@ labels:
   component: ci
 spec:
   # Use service account that can deploy to all namespaces
-  serviceAccountName: epo-dev-terraform-anthonyoleary
+  serviceAccountName: s-epo-itcoopk8spoc-prj
   containers:
   - name: gcloud
     image: gcr.io/cloud-builders/gcloud
