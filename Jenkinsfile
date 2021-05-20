@@ -24,12 +24,12 @@ def helmInstall (namespace, release) {
 pipeline {
 
  //agent any
-
+/*
 agent {
         docker { image 'bitnami/kubectl' }
     }
+*/
 
-/*
  agent {
     kubernetes {
       label 'sample-app'
@@ -42,7 +42,7 @@ labels:
   component: ci
 spec:
   # Use service account that can deploy to all namespaces
-  serviceAccountName: epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com
+  # serviceAccountName: epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com
   containers:
   - name: gcloud
     image: gcr.io/cloud-builders/gcloud
@@ -57,7 +57,7 @@ spec:
 """
 }
   }
-*/
+
 
     environment {
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
