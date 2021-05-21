@@ -80,6 +80,7 @@ CLOUDSDK_COMPUTE_REGION='europe-west3'
 CLOUDSDK_COMPUTE_ZONE='europe-west3-a'
 CLOUDSDK_CONTAINER_CLUSTER='epo-dev'
 GCLOUD_PROJECT='s-epo-itcoopk8spoc-prj'
+SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com"
     }
 
 
@@ -122,7 +123,9 @@ GCLOUD_PROJECT='s-epo-itcoopk8spoc-prj'
           step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-dev", zone: "europe-west3", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
 
          // sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}")
-         sh("echo gggg")
+         sh("echo gggg1")
+         sh("gcloud container clusters get-credentials --zone europe-west3-a epo-dev ")
+         sh("echo gggg2")
         }
 
        container('helm') {
