@@ -140,7 +140,7 @@ SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.
          sh("kubectl config get-contexts")
          sh("kubectl config get-clusters")
          //sh("kubectl config set-context gke_s-epo-itcoopk8spoc-prj_europe-west3_epo-dev --cluster=epo-dev --namespace=default")
-         sh("gcloud container clusters get-credentials epo-dev --region europe-west3 --project s-epo-itcoopk8spoc-prj")
+        // sh("gcloud container clusters get-credentials epo-dev --region europe-west3 --project s-epo-itcoopk8spoc-prj")
          sh("echo after get-contect")
           
         // sh("kubectl config use-context gke_s-epo-itcoopk8spoc-prj_europe-west3_epo-dev")
