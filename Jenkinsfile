@@ -135,10 +135,9 @@ SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.
          sh("echo before helm")
          sh("helm version")
         // sh("kubectl config get-contexts --cluster epo-dev")
-        sh("kubectl config --kubeconfig=config-demo.yaml set-context kubectl config --kubeconfig=config-demo set-context dev-frontend --cluster=epo-dev ")
          sh("kubectl config get-contexts")
          sh("echo after get-contect")
-         sh("kubectl config view")  
+          
         // sh("kubectl config use-context gke_s-epo-itcoopk8spoc-prj_europe-west3_epo-dev")
         // sh("helm upgrade address-book-develop-preemptible helm/address-book --install --wait --namespace=default --set instance=develop --set k8s.clusterName=epo-dev --set lifecycle=preemptible --set featureBranch=default --set jenkinsBranch=develop --timeout 2m")
         }
