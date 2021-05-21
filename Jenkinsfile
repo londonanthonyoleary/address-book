@@ -57,6 +57,11 @@ spec:
     command:
     - cat
     tty: true
+  - name: helm
+    image: gcr.io/s-epo-itcoopk8spoc-prj/helm
+    command:
+    - cat
+    tty: true
 """
 }
   }
@@ -112,6 +117,11 @@ spec:
 
          // sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}")
          sh("echo gggg")
+        }
+
+       container('helm') {
+         sh("echo before helm")
+         sh("helm list")
         }
       
     }
