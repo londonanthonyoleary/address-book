@@ -77,11 +77,11 @@ spec:
 
 // for helm
 CLOUDSDK_COMPUTE_REGION='europe-west3'
-CLOUDSDK_COMPUTE_ZONE='europe-west3-a'
+// CLOUDSDK_COMPUTE_ZONE='europe-west3-a'
+CLOUDSDK_COMPUTE_ZONE='europe-west3'
 CLOUDSDK_CONTAINER_CLUSTER='epo-dev'
-GCLOUD_PROJECT='s-epo-itcoopk8spoc-prj'
+//GCLOUD_PROJECT='s-epo-itcoopk8spoc-prj'
 SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com"
-SKIP_CLUSTER_CONFIG='true'
     }
 
 
