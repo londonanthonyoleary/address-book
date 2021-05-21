@@ -136,6 +136,7 @@ SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.
          sh("helm version")
         // sh("kubectl config get-contexts --cluster epo-dev")
          sh("kubectl config get-contexts")
+         sh("kubectl config get-clusters")
          sh("echo after get-contect")
           
         // sh("kubectl config use-context gke_s-epo-itcoopk8spoc-prj_europe-west3_epo-dev")
