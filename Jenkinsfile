@@ -135,6 +135,7 @@ SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.
          sh("echo before helm")
          sh("helm version")
         // sh("kubectl config get-contexts --cluster epo-dev")
+        sh("kubectl config --kubeconfig=config-demo.yaml set-context kubectl config --kubeconfig=config-demo set-context dev-frontend --cluster=epo-dev ")
          sh("kubectl config get-contexts")
          sh("echo after get-contect")
          sh("kubectl config view")  
