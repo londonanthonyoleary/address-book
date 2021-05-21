@@ -135,12 +135,11 @@ SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.
          sh("echo before helm")
          sh("helm version")
         // sh("kubectl config get-contexts --cluster epo-dev")
-                  step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-dev", zone: "europe-west3", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
 
          sh("kubectl config get-contexts")
          sh("kubectl config get-clusters")
          //sh("kubectl config set-context gke_s-epo-itcoopk8spoc-prj_europe-west3_epo-dev --cluster=epo-dev --namespace=default")
-        // sh("gcloud container clusters get-credentials epo-dev --region europe-west3 --project s-epo-itcoopk8spoc-prj")
+         sh("gcloud container clusters get-credentials epo-dev --region europe-west3 --project s-epo-itcoopk8spoc-prj")
          sh("echo after get-contect")
           
         // sh("kubectl config use-context gke_s-epo-itcoopk8spoc-prj_europe-west3_epo-dev")
