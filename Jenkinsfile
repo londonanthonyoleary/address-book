@@ -124,13 +124,13 @@ SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.
 
          // sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}")
          sh("echo gggg1")
-         sh("gcloud container clusters get-credentials --zone europe-west3 epo-jenkins-anthony ")
-         sh("echo gggg2")
+       //  sh("gcloud container clusters get-credentials --zone europe-west3 epo-jenkins-anthony ")
+       //  sh("echo gggg2")
         }
 
        container('helm') {
          sh("echo before helm")
-         sh("helm list")
+         sh("helm version")
         }
       
     }
