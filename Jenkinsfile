@@ -131,6 +131,7 @@ SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.
        container('helm') {
          sh("echo before helm")
          sh("helm version")
+         sh("helm upgrade address-book-develop-preemptible helm/address-book --install --wait --namespace=default --set instance=develop --set k8s.clusterName=epo-dev --set lifecycle=preemptible --set featureBranch=default --set jenkinsBranch=develop --timeout 2m")
         }
       
     }
