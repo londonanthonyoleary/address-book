@@ -74,6 +74,12 @@ spec:
       //  CREDENTIALS_ID = 'epo-dev-terraform-anthonyoleary'
                 CREDENTIALS_ID = 's-epo-itcoopk8spoc-prj'
 
+
+// for helm
+CLOUDSDK_COMPUTE_REGION='europe-west3'
+CLOUDSDK_COMPUTE_ZONE='europe-west3-a'
+CLOUDSDK_CONTAINER_CLUSTER='epo-dev'
+GCLOUD_PROJECT='s-epo-itcoopk8spoc-prj'
     }
 
 
