@@ -83,7 +83,8 @@ CLOUDSDK_COMPUTE_REGION='europe-west3'
 CLOUDSDK_COMPUTE_ZONE='europe-west3'
 CLOUDSDK_CONTAINER_CLUSTER='epo-dev'
 //GCLOUD_PROJECT='s-epo-itcoopk8spoc-prj'
-SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com"
+//SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com"
+SERVICE_ACCOUNT="epo-jenkins-service-account@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com"
     }
 
 
