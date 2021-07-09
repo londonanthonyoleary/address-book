@@ -14,7 +14,8 @@ def helmInstall (namespace, release) {
                 --set image.repository=${DOCKER_REG}/${IMAGE_NAME},image.tag=${DOCKER_TAG} helm/acme
         """
         */
-        sh "helm upgrade address-book-develop-preemptible-JENKINS helm/address-book --install --wait --namespace=default --set instance=develop --set k8s.clusterName=epo-dev --set lifecycle=preemptible --set featureBranch=default --set jenkinsBranch=develop --timeout 10m"
+        //sh "helm upgrade address-book-develop-preemptible-JENKINS helm/address-book --install --wait --namespace=default --set instance=develop --set k8s.clusterName=epo-dev --set lifecycle=preemptible --set featureBranch=default --set jenkinsBranch=develop --timeout 10m"
+        sh "helm upgrade address-book-develop-preemptible-JENKINS helm/address-book --install --wait --namespace=default --set instance=develop --set k8s.clusterName=epo-jenkins-cluster --set lifecycle=preemptible --set featureBranch=default --set jenkinsBranch=develop --timeout 10m"
 
         sh "sleep 5"
     }
@@ -73,15 +74,17 @@ spec:
         PROJECT_ID = 's-epo-itcoopk8spoc-prj'
         //CLUSTER_NAME = 'epo-dev'
 	CLUSTER_NAME = 'epo-jenkins-cluster'    
-        LOCATION = 'europe-west3'
+       // LOCATION = 'europe-west3'
+	LOCATION = 'europe-west3a'    
       //  CREDENTIALS_ID = 'epo-dev-terraform-anthonyoleary'
                 CREDENTIALS_ID = 's-epo-itcoopk8spoc-prj'
 
 
 // for helm
-CLOUDSDK_COMPUTE_REGION='europe-west3'
-// CLOUDSDK_COMPUTE_ZONE='europe-west3-a'
-CLOUDSDK_COMPUTE_ZONE='europe-west3'
+//CLOUDSDK_COMPUTE_REGION='europe-west3'
+	    CLOUDSDK_COMPUTE_ZONE='europe-west3-a'
+//CLOUDSDK_COMPUTE_ZONE='europe-west3'
+	   CLOUDSDK_COMPUTE_ZONE='europe-west3-a' 
 //CLOUDSDK_CONTAINER_CLUSTER='epo-dev'
 CLOUDSDK_CONTAINER_CLUSTER='epo-jenkins-cluster'	    
 //GCLOUD_PROJECT='s-epo-itcoopk8spoc-prj'
@@ -127,7 +130,8 @@ SERVICE_ACCOUNT="epo-jenkins-service-account@s-epo-itcoopk8spoc-prj.iam.gservice
         // Change deployed image in canary to the one we just built
         //  step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-dev", zone: "europe-west3-a", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
           //step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-dev", zone: "europe-west3", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
-           step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-jenkins-cluster", zone: "europe-west3", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
+         //  step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-jenkins-cluster", zone: "europe-west3", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
+                  step([$class: 'KubernetesEngineBuilder', namespace:'default', projectId: 's-epo-itcoopk8spoc-prj', clusterName: "epo-jenkins-cluster", zone: "europe-west3-a", manifestPattern: 'simple-deploy.yaml', credentialsId: "s-epo-itcoopk8spoc-prj", verifyDeployments: false])
 
          // sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}")
          sh("echo gggg1")
