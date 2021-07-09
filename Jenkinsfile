@@ -84,7 +84,6 @@ spec:
 //CLOUDSDK_COMPUTE_REGION='europe-west3'
 	    CLOUDSDK_COMPUTE_ZONE='europe-west3-a'
 //CLOUDSDK_COMPUTE_ZONE='europe-west3'
-	   CLOUDSDK_COMPUTE_ZONE='europe-west3-a' 
 //CLOUDSDK_CONTAINER_CLUSTER='epo-dev'
 CLOUDSDK_CONTAINER_CLUSTER='epo-jenkins-cluster'	    
 //GCLOUD_PROJECT='s-epo-itcoopk8spoc-prj'
