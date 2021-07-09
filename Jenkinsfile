@@ -48,8 +48,7 @@ spec:
   # serviceAccountName: s-epo-itcoopk8spoc-prj
   # serviceAccountName: epo-dev-terraform-anthonyoleary
   # serviceAccountName: jenkinswithagent
-  # serviceAccountName: jenkins
-  serviceAccountName: epo-jenkins-service-account@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com
+  serviceAccountName: jenkins
   containers:
   - name: gcloud
     image: gcr.io/cloud-builders/gcloud
@@ -77,7 +76,7 @@ spec:
 	CLUSTER_NAME = 'epo-jenkins-cluster'    
         LOCATION = 'europe-west3'  
       //  CREDENTIALS_ID = 'epo-dev-terraform-anthonyoleary'
-                CREDENTIALS_ID = 's-epo-itcoopk8spoc-prj'
+        CREDENTIALS_ID = 's-epo-itcoopk8spoc-prj'
 
 
 // for helm
