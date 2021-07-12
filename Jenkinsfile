@@ -87,8 +87,7 @@ CLOUDSDK_CONTAINER_CLUSTER='epo-jenkins-cluster'
 //SERVICE_ACCOUNT="epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com"
 SERVICE_ACCOUNT="epo-jenkins-service-account@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com"
 	    
-	    CLUSTER = 'epo-jenkins-cluster'
-	    JENKINS_CRED = "s-epo-itcoopk8spoc-prj"
+	 
     }
 
 
