@@ -39,8 +39,8 @@ agent {
 apiVersion: v1
 kind: Pod
 metadata:
-labels:
-  component: ci
+#labels:
+#  component: ci
 spec:
   # Use service account that can deploy to all namespaces
   # serviceAccountName: epo-jenkins-anthony@s-epo-itcoopk8spoc-prj.iam.gserviceaccount.com
