@@ -48,8 +48,8 @@ spec:
   # serviceAccountName: s-epo-itcoopk8spoc-prj
   # serviceAccountName: epo-dev-terraform-anthonyoleary
   # serviceAccountName: jenkinswithagent
-  #serviceAccountName: jenkins
-  serviceAccountName: epo-jenkins-service-account
+  serviceAccountName: jenkins
+  #serviceAccountName: epo-jenkins-service-account
   containers:
   - name: gcloud
     image: gcr.io/cloud-builders/gcloud
